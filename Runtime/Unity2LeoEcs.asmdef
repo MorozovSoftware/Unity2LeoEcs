@@ -1,0 +1,16 @@
+{
+    "name": "MorozovSoftware.Unity2LeoEcs",
+    "rootNamespace": "",
+    "references": [
+        "Leopotam.Ecs"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

@@ -1,0 +1,17 @@
+{
+    "name": "com.morozovsoftware.unity2leoecs",
+    "author": {
+        "name": "Leonid Morozov",
+        "email": "MorozovSoftware@hotmail.com"
+    },
+    "displayName": "Unity2LeoEcs",
+    "description": "Unity intergration to Leopotam/Ecs.",
+    "unity": "2020.3",
+    "version": "2022.2.22",
+    "keywords": ["ecs","leoEcs","integration","Leopotam"],
+    "dependencies": {},
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/MorozovSoftware/Unity2LeoEcs.git"
+    }
+}
