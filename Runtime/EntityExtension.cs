@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Reflection;
 using Leopotam.Ecs;
-using MorozovSoftware.Unity2LeoEcs.Components;
 
 namespace MorozovSoftware.Unity2LeoEcs
 {

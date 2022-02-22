@@ -1,7 +1,7 @@
 using UnityEngine;
 using Leopotam.Ecs;
 
-namespace MorozovSoftware.Unity2LeoEcs.UnityComponents
+namespace MorozovSoftware.Unity2LeoEcs
 {
     [RequireComponent(typeof(EntityComponent))]
     public abstract class MonoEntity : MonoBehaviour

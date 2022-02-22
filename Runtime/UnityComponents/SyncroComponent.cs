@@ -1,9 +1,7 @@
 using UnityEngine;
 using Leopotam.Ecs;
-using MorozovSoftware.Unity2LeoEcs.Components;
 
-
-namespace MorozovSoftware.Unity2LeoEcs.UnityComponents
+namespace MorozovSoftware.Unity2LeoEcs
 {
     public class SyncroComponent : MonoEntity
     {

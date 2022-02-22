@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace MorozovSoftware.Unity2LeoEcs.Components
+namespace MorozovSoftware.Unity2LeoEcs
 {
     public struct UnityObject<T> where T : Object
     {
