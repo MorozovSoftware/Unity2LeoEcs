@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Unity2LeoEcs.UnityComponents
+namespace MorozovSoftware.Unity2LeoEcs.UnityComponents
 {
     public class DontDestroyComponent : MonoBehaviour
     {

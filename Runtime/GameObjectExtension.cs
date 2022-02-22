@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Unity2LeoEcs
+namespace MorozovSoftware.Unity2LeoEcs
 {
     public static class GameObjectExtension
     {

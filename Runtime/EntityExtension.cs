@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Reflection;
 using Leopotam.Ecs;
-using Unity2LeoEcs.Components;
+using MorozovSoftware.Unity2LeoEcs.Components;
 
-namespace Unity2LeoEcs
+namespace MorozovSoftware.Unity2LeoEcs
 {
     public static class EntityExtension
     {

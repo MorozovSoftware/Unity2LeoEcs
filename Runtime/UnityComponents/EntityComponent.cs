@@ -1,7 +1,7 @@
 using UnityEngine;
 using Leopotam.Ecs;
 
-namespace Unity2LeoEcs.UnityComponents
+namespace MorozovSoftware.Unity2LeoEcs.UnityComponents
 {
     public class EntityComponent : MonoBehaviour
     {
