@@ -2,7 +2,9 @@
     "name": "MorozovSoftware.Unity2LeoEcs",
     "rootNamespace": "",
     "references": [
-        "Leopotam.Ecs"
+        "Leopotam.Ecs",
+        "Zenject",
+        "Leopotam.Ecs.UnityIntegration"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
