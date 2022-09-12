@@ -18,7 +18,13 @@ namespace MorozovSoftware.Unity2LeoEcs
         {
             foreach (var item in GetComponents<Component>())
             {
-                _entity.AddUnityObjectByReflection(item);
+                if(item is IStructForLeoEcs structForLeoEcs)
+                {
+                    structForLeoEcs.Replace(_entity);
+                } else
+                {
+                    _entity.AddUnityObjectByReflection(item);
+                }                
             }
         }
         private void OnDestroy()
@@ -27,7 +33,14 @@ namespace MorozovSoftware.Unity2LeoEcs
             {
                 foreach (var item in GetComponents<Component>())
                 {
-                    _entity.DelUnityObjectByReflection(item);
+                    if (item is IStructForLeoEcs structForLeoEcs)
+                    {
+                        structForLeoEcs.Del(_entity);
+                    }
+                    else
+                    {
+                        _entity.DelUnityObjectByReflection(item);
+                    }
                 }
             }            
         }

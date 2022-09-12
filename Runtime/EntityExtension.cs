@@ -29,5 +29,10 @@ namespace MorozovSoftware.Unity2LeoEcs
         {
             DelUnityObjectByReflection(entity, unityObject.GetType());
         }
+
+        public static void Del<T>(this in EcsEntity entity, T structure) where T : struct
+        {
+            entity.Del<T>();
+        }
     }
 }
