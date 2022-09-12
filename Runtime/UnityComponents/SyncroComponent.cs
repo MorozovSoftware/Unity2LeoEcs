@@ -1,44 +1,35 @@
 using UnityEngine;
 using Leopotam.Ecs;
+using Zenject;
 
 namespace MorozovSoftware.Unity2LeoEcs
 {
-    public class SyncroComponent : MonoEntity
+    public class SyncroComponent : MonoBehaviour
     {
+        private EcsEntity _entity;
+
+        [Inject]
+        public void Construct(EcsEntity entity)
+        {
+            _entity = entity;
+        }
+
         void Start()
         {
             foreach (var item in GetComponents<Component>())
             {
-                Entity.AddUnityObjectByReflection(item);
+                _entity.AddUnityObjectByReflection(item);
             }
         }
         private void OnDestroy()
         {
-            if(Entity.IsWorldAlive())
+            if(_entity.IsWorldAlive())
             {
                 foreach (var item in GetComponents<Component>())
                 {
-                    Entity.DelUnityObjectByReflection(item);
+                    _entity.DelUnityObjectByReflection(item);
                 }
             }            
-        }
-
-        public T GetOrAdd<T>() where T : Component
-        {
-            var component = gameObject.GetOrAddComponent<T>();
-            Entity.AddUnityObjectByGeneric(component);
-
-            return component;
-        }
-        public void Del<T>() where T : Component
-        {
-            ref var ecsComponent = ref Entity.Get<UnityObject<T>>();
-            var unityComponent = ecsComponent.Value;
-            if(unityComponent != null)
-            {
-                Destroy(unityComponent);
-            }
-            Entity.Del<UnityObject<T>>();
         }
     }
 }
