@@ -6,8 +6,8 @@
     },
     "displayName": "Unity2LeoEcs",
     "description": "Unity intergration to Leopotam/Ecs.",
-    "unity": "2020.3",
-    "version": "2022.2.22",
+    "unity": "2021.3",
+    "version": "2022.9.13",
     "keywords": ["ecs","leoEcs","integration","Leopotam"],
     "dependencies": {},
     "repository": {
