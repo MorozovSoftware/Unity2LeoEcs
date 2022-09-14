@@ -4,45 +4,22 @@ using Zenject;
 
 namespace MorozovSoftware.Unity2LeoEcs
 {
-    public class SyncroComponent : MonoBehaviour
+    public sealed class SyncroComponent : ComponentsToEntity
     {
-        private EcsEntity _entity;
-
-        [Inject]
-        public void Construct(EcsEntity entity)
+        private bool _isStarted = false;
+        private void OnEnable()
         {
-            _entity = entity;
+            if(_isStarted)
+                Replace();
         }
-
-        void Start()
+        private void Start()
         {
-            foreach (var item in GetComponents<Component>())
-            {
-                if(item is IStructForLeoEcs structForLeoEcs)
-                {
-                    structForLeoEcs.Replace(_entity);
-                } else
-                {
-                    _entity.AddUnityObjectByReflection(item);
-                }                
-            }
+            _isStarted = true;
+            Replace();
         }
-        private void OnDestroy()
+        private void OnDisable()
         {
-            if(_entity.IsWorldAlive())
-            {
-                foreach (var item in GetComponents<Component>())
-                {
-                    if (item is IStructForLeoEcs structForLeoEcs)
-                    {
-                        structForLeoEcs.Del(_entity);
-                    }
-                    else
-                    {
-                        _entity.DelUnityObjectByReflection(item);
-                    }
-                }
-            }            
+            Del();
         }
     }
 }
