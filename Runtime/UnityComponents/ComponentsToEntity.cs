@@ -1,6 +1,4 @@
 using Leopotam.Ecs;
-using MorozovSoftware.Unity2LeoEcs;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
