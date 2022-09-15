@@ -1,37 +1,42 @@
-using UnityEngine;
 using Leopotam.Ecs;
+using System.Collections.Generic;
+using UnityEngine;
 using Zenject;
 
 namespace MorozovSoftware.Unity2LeoEcs
 {
-    public class SyncroComponent : MonoBehaviour
+    public abstract class ComponentsToEntity : MonoBehaviour
     {
-        private EcsEntity _entity;
+        List<Component> _components;
+        EcsEntity _entity;
 
         [Inject]
-        public void Construct(EcsEntity entity)
+        public void Construct(List<Component> components, EcsEntity entity)
         {
+            _components = components;
             _entity = entity;
         }
 
-        void Start()
+        protected void Replace()
         {
-            foreach (var item in GetComponents<Component>())
+            foreach (var item in _components)
             {
-                if(item is IStructForLeoEcs structForLeoEcs)
+                if (item is IStructForLeoEcs structForLeoEcs)
                 {
                     structForLeoEcs.Replace(_entity);
-                } else
+                }
+                else
                 {
                     _entity.AddUnityObjectByReflection(item);
-                }                
+                }
             }
         }
-        private void OnDestroy()
+
+        protected void Del()
         {
-            if(_entity.IsWorldAlive())
+            if (_entity.IsWorldAlive())
             {
-                foreach (var item in GetComponents<Component>())
+                foreach (var item in _components)
                 {
                     if (item is IStructForLeoEcs structForLeoEcs)
                     {
@@ -42,7 +47,8 @@ namespace MorozovSoftware.Unity2LeoEcs
                         _entity.DelUnityObjectByReflection(item);
                     }
                 }
-            }            
+            }
         }
     }
 }
+    
