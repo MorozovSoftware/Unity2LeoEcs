@@ -1,7 +1,3 @@
-using UnityEngine;
-using Leopotam.Ecs;
-using Zenject;
-
 namespace MorozovSoftware.Unity2LeoEcs
 {
     public sealed class ActiveToEntity : ComponentsToEntity
