@@ -4,7 +4,7 @@ using Zenject;
 
 namespace MorozovSoftware.Unity2LeoEcs
 {
-    public sealed class SyncroComponent : ComponentsToEntity
+    public sealed class ActiveToEntity : ComponentsToEntity
     {
         private bool _isStarted = false;
         private void OnEnable()
