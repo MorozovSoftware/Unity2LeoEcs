@@ -10,6 +10,17 @@ namespace MorozovSoftware.Unity2LeoEcs.Editor
             property.GetArrayElementAtIndex(++property.arraySize - 1).objectReferenceValue = item;
         }
 
+        public static void DeleteNulls(this SerializedProperty property)
+        {
+            for (int i = property.arraySize - 1; i >= 0; i--)
+            {
+                if (property.GetArrayElementAtIndex(i).objectReferenceValue == null)
+                {
+                    property.DeleteArrayElementAtIndex(i);
+                }
+            }
+        }
+
         public static void AddOneEntry(this SerializedProperty property, Object[] objects)
         {
 
