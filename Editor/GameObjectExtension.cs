@@ -1,3 +1,4 @@
+using UnityEditor;
 using UnityEngine;
 
 namespace MorozovSoftware.Unity2LeoEcs.Editor
@@ -11,6 +12,13 @@ namespace MorozovSoftware.Unity2LeoEcs.Editor
                 component = gameObject.AddComponent<T>();
             }
             return component;
+        }
+        public static void DestroyImmediate<T>(this GameObject gameObject) where T : Component
+        {
+            foreach (Component item in gameObject.GetComponents<T>())
+            {
+                Object.DestroyImmediate(item);
+            }
         }
     }
 }
