@@ -45,9 +45,13 @@ namespace MorozovSoftware.Unity2LeoEcs.Editor
 
             if (GUILayout.Button("Update"))
             {
+                Undo.RecordObject(_component, "Update components");
+
                 _component.Setup();
+
+                EditorUtility.SetDirty(_component);
             }
-            
+
             serializedObject.ApplyModifiedProperties();
         }
     }
